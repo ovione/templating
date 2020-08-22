@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { TableOptionsModel } from '../../common/model/table-options.model';
 import { Person } from './model/person.model';
 
@@ -11,7 +11,7 @@ export class TemplatesUsageComponent implements OnInit {
   cols: Array<TableOptionsModel>;
   rowsData: Array<any>;
 
-  constructor() { }
+  @ViewChild('rowsGeneratortemplateRef') rowsGeneratortemplateRef: TemplateRef<any>;
 
   ngOnInit(): void {
     this.initializeCols();

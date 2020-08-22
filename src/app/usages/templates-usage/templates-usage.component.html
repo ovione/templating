@@ -1,1 +1,7 @@
-<app-templates [cols]="cols" [rowsData]="rowsData"></app-templates>
+<ng-template #rowsGeneratortemplateRef let-rowsData="rowsData" let-cols="cols">
+  <tr *ngFor="let rowData of rowsData">
+    <td *ngFor="let col of cols" class="color-red">{{rowData[col.field]}}</td>
+  </tr>
+</ng-template>
+
+<app-templates [cols]="cols" [rowsData]="rowsData" [rowsGeneratorTemplateRef]="rowsGeneratortemplateRef"></app-templates>
