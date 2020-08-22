@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ContentProjectionModule } from './common/content-projection/content-projection.module';
+import { TemplatesUsageModule } from './usages/templates-usage/templates-usage.module';
+import { ContentProjectionUsageModule } from './usages/content-projection-usage/content-projection-usage.module';
 
 @NgModule({
   declarations: [
@@ -13,10 +14,10 @@ import { ContentProjectionModule } from './common/content-projection/content-pro
     BrowserModule,
     AppRoutingModule,
 
-    ContentProjectionModule
+    ContentProjectionUsageModule,
+    TemplatesUsageModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
