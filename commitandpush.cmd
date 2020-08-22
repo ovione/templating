@@ -1,1 +1,1 @@
-git commit -am "misc" & git push & git status
+git add . & git commit -am "misc" & git push & git status
