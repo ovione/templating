@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, TemplateRef } from '@angular/core';
 import { TableOptionsModel } from '../model/table-options.model';
 
 @Component({
@@ -9,4 +9,5 @@ import { TableOptionsModel } from '../model/table-options.model';
 export class TemplatesComponent {
   @Input() cols: Array<TableOptionsModel>;
   @Input() rowsData: Array<any>;
+  @Input() rowsGeneratortemplateRef: TemplateRef<any>;
 }

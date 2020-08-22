@@ -4,10 +4,13 @@
   <tr>
     <th *ngFor="let col of cols">{{col.header}}</th>
   </tr>
+  <ng-container *ngTemplateOutlet="rowsGeneratortemplateRef ? rowsGeneratortemplateRef: rowGeneratorDefault"></ng-container>
+</table>
+
+<ng-template #rowGeneratorDefault>
   <ng-container *ngFor="let rowData of rowsData">
     <tr>
       <td *ngFor="let col of cols">{{rowData[col.field]}}</td>
     </tr>
   </ng-container>
-</table>
-
+</ng-template>
