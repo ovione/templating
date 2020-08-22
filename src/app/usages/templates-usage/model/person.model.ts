@@ -1,3 +1,3 @@
 export class Person {
-  constructor(public name: string, lastname: string, age: number) {}
+  constructor(public name: string, public lastname: string, public age: number) {}
 }
