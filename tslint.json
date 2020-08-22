@@ -9,6 +9,7 @@
     },
     "array-type": false,
     "arrow-return-shorthand": true,
+    "trailing whitespace": true,
     "curly": true,
     "deprecation": {
       "severity": "warning"
