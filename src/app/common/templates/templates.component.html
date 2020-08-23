@@ -7,11 +7,17 @@
   <ng-container *ngTemplateOutlet="!rowsDataGeneratorTemplateRef ? rowsDataGeneratorDefault : rowsDataGeneratorTemplateRef; context: {rowsData: this.rowsData, cols: this.cols}"></ng-container>
 </table>
 
-<ng-template #rowsHeadersGeneratorDefault>
-  <th *ngFor="let col of cols">{{col.header}}</th>
+<ng-template #rowsHeadersGeneratorDefault let-col="cols">
+  <th *ngFor="let col of cols">
+    <ng-container *ngTemplateOutlet="!col.headerTemplateRef ? rowHeadersGeneratorDefault : col.headerTemplateRef; context: {header: this.col.header}"></ng-container>
+  </th>
 </ng-template>
 
-<ng-template #rowsDataGeneratorDefault>
+<ng-template #rowHeadersGeneratorDefault let-header="header">
+  {{header}}
+</ng-template>
+
+<ng-template #rowsDataGeneratorDefault let-col="cols">
   <tr *ngFor="let rowData of rowsData">
     <td *ngFor="let col of cols">{{rowData[col.field]}}</td>
   </tr>

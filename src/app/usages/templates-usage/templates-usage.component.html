@@ -8,6 +8,10 @@
   </tr>
 </ng-template>
 
+<ng-template #headerLastnameDataGeneratortemplateRef let-header="header">
+  <span class="color-green">{{header}}</span>
+</ng-template>
+
 <app-templates  [cols]="cols"
                 [rowsData]="rowsData"
                 [rowsDataGeneratorTemplateRef]="rowsDataGeneratortemplateRef"

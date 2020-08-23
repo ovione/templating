@@ -1,5 +1,5 @@
 import { TemplateRef } from '@angular/core';
 
 export class TableOptionsModel {
-    constructor(public field: string, public header: string, fieldTemplateRef?: TemplateRef<any>, headerTemplateRef?: TemplateRef<any>) {}
+    constructor(public field: string, public header: string, public fieldTemplateRef?: TemplateRef<any>, public headerTemplateRef?: TemplateRef<any>) {}
 }

@@ -7,6 +7,7 @@
         "statements"
       ]
     },
+    "no-trailing-whitespace": false,
     "array-type": false,
     "arrow-return-shorthand": true,
     "trailing whitespace": false,
@@ -43,7 +44,7 @@
     "max-classes-per-file": false,
     "max-line-length": [
       true,
-      140
+      240
     ],
     "member-ordering": [
       true,
