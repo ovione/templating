@@ -9,5 +9,6 @@ import { TableOptionsModel } from '../model/table-options.model';
 export class TemplatesComponent {
   @Input() cols: Array<TableOptionsModel>;
   @Input() rowsData: Array<any>;
-  @Input() rowsGeneratorTemplateRef: TemplateRef<any>;
+  @Input() rowsHeadersGeneratorTemplateRef: TemplateRef<any>;
+  @Input() rowsDataGeneratorTemplateRef: TemplateRef<any>;
 }

@@ -1,7 +1,14 @@
-<ng-template #rowsGeneratortemplateRef let-rowsData="rowsData" let-cols="cols">
+<ng-template #rowsHeadersGeneratorTemplateRef let-cols="cols">
+  <th *ngFor="let col of cols">{{col.header | uppercase}}</th>
+</ng-template>
+
+<ng-template #rowsDataGeneratortemplateRef let-rowsData="rowsData" let-cols="cols">
   <tr *ngFor="let rowData of rowsData">
     <td *ngFor="let col of cols" class="color-red">{{rowData[col.field]}}</td>
   </tr>
 </ng-template>
 
-<app-templates [cols]="cols" [rowsData]="rowsData" [rowsGeneratorTemplateRef]="rowsGeneratortemplateRef"></app-templates>
+<app-templates  [cols]="cols"
+                [rowsData]="rowsData"
+                [rowsDataGeneratorTemplateRef]="rowsDataGeneratortemplateRef"
+                [rowsHeadersGeneratorTemplateRef]="rowsHeadersGeneratorTemplateRef"></app-templates>

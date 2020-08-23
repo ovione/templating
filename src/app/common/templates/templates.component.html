@@ -2,12 +2,16 @@
 
 <table style="width:100%">
   <tr>
-    <th *ngFor="let col of cols">{{col.header}}</th>
+    <ng-container *ngTemplateOutlet="!rowsHeadersGeneratorTemplateRef ? rowsHeadersGeneratorDefault : rowsHeadersGeneratorTemplateRef; context: {cols: this.cols}"></ng-container>
   </tr>
-  <ng-container *ngTemplateOutlet="!rowsGeneratorTemplateRef ? rowGeneratorDefault : rowsGeneratorTemplateRef; context: {rowsData: this.rowsData, cols: this.cols}"></ng-container>
+  <ng-container *ngTemplateOutlet="!rowsDataGeneratorTemplateRef ? rowsDataGeneratorDefault : rowsDataGeneratorTemplateRef; context: {rowsData: this.rowsData, cols: this.cols}"></ng-container>
 </table>
 
-<ng-template #rowGeneratorDefault>
+<ng-template #rowsHeadersGeneratorDefault>
+  <th *ngFor="let col of cols">{{col.header}}</th>
+</ng-template>
+
+<ng-template #rowsDataGeneratorDefault>
   <tr *ngFor="let rowData of rowsData">
     <td *ngFor="let col of cols">{{rowData[col.field]}}</td>
   </tr>

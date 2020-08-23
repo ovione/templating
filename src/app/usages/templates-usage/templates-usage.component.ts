@@ -11,7 +11,8 @@ export class TemplatesUsageComponent implements OnInit {
   cols: Array<TableOptionsModel>;
   rowsData: Array<any>;
 
-  @ViewChild('rowsGeneratortemplateRef') rowsGeneratortemplateRef: TemplateRef<any>;
+  @ViewChild('rowsHeadersGeneratorTemplateRef') rowsHeadersGeneratorTemplateRef: TemplateRef<any>;
+  @ViewChild('rowsDataGeneratortemplateRef') rowsDataGeneratortemplateRef: TemplateRef<any>;
 
   ngOnInit(): void {
     this.initializeCols();
