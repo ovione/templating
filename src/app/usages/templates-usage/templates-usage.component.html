@@ -20,6 +20,9 @@
   <span class="color-blueviolet">{{rowData[field]}}</span>
 </ng-template>
 
+<app-templates  [cols]="colsNormal"
+                [rowsData]="rowsData"></app-templates>
+
 <app-templates  [cols]="cols"
                 [rowsData]="rowsData"
                 [rowsDataGeneratorTemplateRef]="rowsDataGeneratortemplateRef"

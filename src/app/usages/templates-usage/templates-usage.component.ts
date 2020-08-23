@@ -9,6 +9,7 @@ import { Person } from './model/person.model';
 })
 export class TemplatesUsageComponent implements OnInit, AfterViewInit {
   cols: Array<TableOptionsModel>;
+  colsNormal: Array<TableOptionsModel>;
   rowsData: Array<any>;
 
   @ViewChild('rowsHeadersGeneratorTemplateRef') rowsHeadersGeneratorTemplateRef: TemplateRef<any>;
@@ -23,15 +24,35 @@ export class TemplatesUsageComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.initializeCols();
+    setTimeout( () => {
+      this.initializeCols();
+    });
+
   }
 
   private initializeCols(): void {
-    this.cols = new Array<TableOptionsModel>();
+    this.colsNormal = this.initializeColsNotCustomized();
+    this.cols = this.initializeColsCustomized();
+  }
 
-    this.cols.push(new TableOptionsModel('name', 'Name'));
-    this.cols.push(new TableOptionsModel('lastname', 'Last Name', this.fieldLastnameDataGeneratortemplateRef, this.headerLastnameDataGeneratortemplateRef));
-    this.cols.push(new TableOptionsModel('age', 'Age', this.fieldAgeDataGeneratortemplateRef));
+  private initializeColsNotCustomized(): Array<TableOptionsModel>{
+    const cols = new Array<TableOptionsModel>();
+
+    cols.push(new TableOptionsModel('name', 'Name'));
+    cols.push(new TableOptionsModel('lastname', 'Last Name'));
+    cols.push(new TableOptionsModel('age', 'Age'));
+
+    return cols;
+  }
+
+  private initializeColsCustomized(): Array<TableOptionsModel>{
+    const cols = new Array<TableOptionsModel>();
+
+    cols.push(new TableOptionsModel('name', 'Name'));
+    cols.push(new TableOptionsModel('lastname', 'Last Name', this.fieldLastnameDataGeneratortemplateRef, this.headerLastnameDataGeneratortemplateRef));
+    cols.push(new TableOptionsModel('age', 'Age', this.fieldAgeDataGeneratortemplateRef));
+
+    return cols;
   }
 
   private initializeRowData(): void {
