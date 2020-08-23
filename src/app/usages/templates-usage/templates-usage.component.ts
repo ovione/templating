@@ -62,4 +62,8 @@ export class TemplatesUsageComponent implements OnInit, AfterViewInit {
     this.rowsData.push(new Person('yoda', 'jedi', 1000));
     this.rowsData.push(new Person('luke', 'skywalker', 21));
   }
+
+  fieldClicked(field: string, value: any): void {
+    console.log('the field: \'' + field + '\' was clicked with value: ' + value);
+  }
 }

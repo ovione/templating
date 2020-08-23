@@ -18,6 +18,7 @@
 
 <ng-template #fieldAgeDataGeneratortemplateRef let-rowData="rowData" let-field="field">
   <span class="color-blueviolet">{{rowData[field]}}</span>
+  <button (click)="fieldClicked(field, rowData[field])">click</button>
 </ng-template>
 
 <app-templates  [cols]="colsNormal"
