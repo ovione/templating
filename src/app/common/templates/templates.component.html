@@ -7,9 +7,9 @@
   <ng-container *ngTemplateOutlet="!rowsDataGeneratorTemplateRef ? rowsDataGeneratorDefault : rowsDataGeneratorTemplateRef; context: {rowsData: this.rowsData, cols: this.cols}"></ng-container>
 </table>
 
-<ng-template #rowsHeadersGeneratorDefault let-col="cols">
+<ng-template #rowsHeadersGeneratorDefault let-cols="cols">
   <th *ngFor="let col of cols">
-    <ng-container *ngTemplateOutlet="!col.headerTemplateRef ? rowHeadersGeneratorDefault : col.headerTemplateRef; context: {header: this.col.header}"></ng-container>
+    <ng-container *ngTemplateOutlet="!col.headerTemplateRef ? rowHeadersGeneratorDefault : col.headerTemplateRef; context: {header: col.header}"></ng-container>
   </th>
 </ng-template>
 
@@ -17,8 +17,14 @@
   {{header}}
 </ng-template>
 
-<ng-template #rowsDataGeneratorDefault let-col="cols">
+<ng-template #rowsDataGeneratorDefault let-rowsData="rowsData" let-cols="cols">
   <tr *ngFor="let rowData of rowsData">
-    <td *ngFor="let col of cols">{{rowData[col.field]}}</td>
+    <td *ngFor="let col of cols">
+      <ng-container *ngTemplateOutlet="!col.fieldTemplateRef ? rowDataGeneratorDefault : col.fieldTemplateRef; context: {rowData: rowData, field: col.field}"></ng-container>
+    </td>
   </tr>
+</ng-template>
+
+<ng-template #rowDataGeneratorDefault let-rowData="rowData" let-field="field">
+  {{rowData[field]}}
 </ng-template>

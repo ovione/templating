@@ -12,6 +12,14 @@
   <span class="color-green">{{header}}</span>
 </ng-template>
 
+<ng-template #fieldLastnameDataGeneratortemplateRef let-rowData="rowData" let-field="field">
+  <span class="color-blue">{{rowData[field]}}</span>
+</ng-template>
+
+<ng-template #fieldAgeDataGeneratortemplateRef let-rowData="rowData" let-field="field">
+  <span class="color-blueviolet">{{rowData[field]}}</span>
+</ng-template>
+
 <app-templates  [cols]="cols"
                 [rowsData]="rowsData"
                 [rowsDataGeneratorTemplateRef]="rowsDataGeneratortemplateRef"
